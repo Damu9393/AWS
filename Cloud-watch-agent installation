@@ -1,0 +1,117 @@
+Method 2
+	Launch the ec2
+	Attach the iam role 
+	Connect to ec2 
+	Install cloud watch agent
+yum install amazon-cloudwatch-agent -y
+
+	Edit this file or create file using below commnd
+vi /opt/aws/amazon-cloudwatch-agent/bin/config.json
+
+	Add below json config detailes
+	Change the highlighted details based on your requirement
+{
+        "agent": {
+                "metrics_collection_interval": 60,
+                "run_as_user": "root"
+        },
+        "logs": {
+                "logs_collected": {
+                        "files": {
+                                "collect_list": [
+                                        {
+                                                "file_path": "/var/log/*",
+                                                "log_group_class": "STANDARD",
+                                                "log_group_name": "aws",
+                                                "log_stream_name": "devops",
+                                                "retention_in_days": 1
+                                        }
+                                ]
+                        }
+                }
+        },
+        "metrics": {
+                "aggregation_dimensions": [
+                        [
+                                "InstanceId"
+                        ]
+                ],
+                "append_dimensions": {
+                        "AutoScalingGroupName": "${aws:AutoScalingGroupName}",
+                        "ImageId": "${aws:ImageId}",
+                        "InstanceId": "${aws:InstanceId}",
+                        "InstanceType": "${aws:InstanceType}"
+                },
+                "metrics_collected": {
+                        "cpu": {
+                                "measurement": [
+                                        "cpu_usage_idle",
+                                        "cpu_usage_iowait",
+                                        "cpu_usage_user",
+                                        "cpu_usage_system"
+                                ],
+                                "metrics_collection_interval": 60,
+                                "resources": [
+                                        "*"
+                                ],
+                                "totalcpu": false
+                        },
+                        "disk": {
+                                "measurement": [
+                                        "used_percent",
+                                        "inodes_free"
+                                ],
+                                "metrics_collection_interval": 60,
+                                "resources": [
+                                        "*"
+                                ]
+                        },
+                        "diskio": {
+                                "measurement": [
+                                        "io_time"
+                                ],
+                                "metrics_collection_interval": 60,
+                                "resources": [
+                                        "*"
+                                ]
+                        },
+                        "mem": {
+                                "measurement": [
+                                        "mem_used_percent"
+                                ],
+                                "metrics_collection_interval": 60
+                        },
+                        "statsd": {
+                                "metrics_aggregation_interval": 60,
+                                "metrics_collection_interval": 10,
+                                "service_address": ":8125"
+                        },
+                        "swap": {
+                                "measurement": [
+                                        "swap_used_percent"
+                                ],
+                                "metrics_collection_interval": 60
+                        }
+                }
+        },
+        "traces": {
+                "buffer_size_mb": 3,
+                "concurrency": 8,
+                "insecure": false,
+                "region_override": "us-east-2",
+                "traces_collected": {
+                        "xray": {
+                                "bind_address": "127.0.0.1:2000",
+                                "tcp_proxy": {
+                                        "bind_address": "127.0.0.1:2000"
+                                }
+                        }
+                }
+        }
+}
+
+	Enter below command for strat the cloudwatch and creation of log group in cloud watch console based on config,json file 
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+
+
+	Open your cloud watch and check 
