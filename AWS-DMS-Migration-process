@@ -1,0 +1,8 @@
+1.	Update the package index sudo su - sudo dnf update -y 
+2.	Download the MySQL 8.0 community release package. This ensures you get the correct repository configuration for MySQL 8.0: 
+sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-4.noarch.rpm 
+3.	Install the MySQL community release package. This adds the MySQL repository to your system: 
+sudo dnf install mysql80-community-release-el9-4.noarch.rpm -y 
+4.	Install MySQL server sudo dnf install mysql-community-server -y 
+5.	Verify MySQL installation. Check the installed MySQL version: 
+mysql -V 
