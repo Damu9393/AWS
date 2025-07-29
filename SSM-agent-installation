@@ -1,0 +1,8 @@
+sudo dnf update -y
+sudo dnf install amazon-ssm-agent -y
+sudo systemctl start amazon-ssm-agent
+sudo systemctl enable amazon-ssm-agent
+sudo systemctl status amazon-ssm-agent
+Instructions below the code:
+
+"Create IAM role and give "AmazonSSMManagedInstanceCore" then attach to Ec2"
