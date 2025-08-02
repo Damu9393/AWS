@@ -1,0 +1,8 @@
+Docker images # to show imanges 
+Docker run -dt image /bin/bash # to create container and log into container.
+Docker run -it containaerid /bin/bash ## to intercat with containter and log.
+ps aux # to show runnig containers 
+Docker inspect image or containerid # to check moreinfo about the image or container.
+Docker pull image name:
+Docker build -t name . # it will create image from Docker file.
+Docker run -dt -p 
