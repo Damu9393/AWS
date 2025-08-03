@@ -16,4 +16,5 @@ CMD ["echo", "hai"]
 
 
 If you want to use sleep CMD after 60 seconds you can use this 
-CMD ["sleep", "60"]
+# Run sleep for 60 seconds, then echo "hai"
+CMD ["sh", "-c", "sleep 60 && echo hai"]
