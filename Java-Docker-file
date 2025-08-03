@@ -1,0 +1,14 @@
+# Use official OpenJDK base image
+FROM openjdk:17-jdk-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy your Java application JAR file into the container
+COPY myapp.jar .
+
+# Expose the port your app uses (optional)
+EXPOSE 8080
+
+# Command to run the JAR
+CMD ["java", "-jar", "myapp.jar"]
