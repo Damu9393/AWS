@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy a single file (file1) to the container
+COPY file1 /app/
+
+# Add a directory or remote file (example.tar.gz) to the container
+ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.102/bin/apache-tomcat-9.0.102.tar.gz /app/
+
+# Install required packages (procps for ps aux)
+RUN apt update && apt install -y procps
+
+CMD ["echo", "hai"]
