@@ -13,3 +13,7 @@ ADD https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.102/bin/apache-tomcat-9.0.102.
 RUN apt update && apt install -y procps
 
 CMD ["echo", "hai"]
+
+
+If you want to use sleep CMD after 60 seconds you can use this 
+CMD ["sleep", "60"]
