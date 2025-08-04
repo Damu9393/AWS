@@ -1,0 +1,71 @@
+Cluster & Node Management
+kubectl cluster-info
+Shows information about the Kubernetes cluster.
+
+kubectl get nodes
+Lists all nodes in the cluster.
+
+kubectl describe node <node-name>
+Provides detailed information about a specific node.
+
+📦 Pod Management
+kubectl get pods
+Lists all pods in the current namespace.
+
+kubectl get pods --all-namespaces
+Lists pods across all namespaces.
+
+kubectl describe pod <pod-name>
+Shows detailed info about a specific pod.
+
+kubectl logs <pod-name>
+Displays logs from a pod.
+
+kubectl exec -it <pod-name> -- /bin/bash
+Accesses a running pod interactively.
+
+📁 Deployment & ReplicaSet
+kubectl get deployments
+Lists all deployments.
+
+kubectl describe deployment <deployment-name>
+Shows detailed info about a deployment.
+
+kubectl apply -f <file>.yaml
+Creates or updates resources defined in a YAML file.
+
+kubectl delete -f <file>.yaml
+Deletes resources defined in a YAML file.
+
+kubectl rollout status deployment/<deployment-name>
+Checks the rollout status of a deployment.
+
+kubectl scale deployment <deployment-name> --replicas=5
+Scales the number of replicas.
+
+🔄 Service Management
+kubectl get services
+Lists all services.
+
+kubectl describe service <service-name>
+Shows details of a specific service.
+
+🧪 Namespace Management
+kubectl get namespaces
+Lists all namespaces.
+
+kubectl create namespace <name>
+Creates a new namespace.
+
+kubectl config set-context --current --namespace=<name>
+Sets the default namespace for the current context.
+
+🧹 Cleanup & Debugging
+kubectl delete pod <pod-name>
+Deletes a pod.
+
+kubectl delete deployment <deployment-name>
+Deletes a deployment.
+
+kubectl top pod
+Shows resource usage of pods (requires metrics-server).
