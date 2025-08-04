@@ -7,6 +7,7 @@ Docker pull image name:
 Docker build -t name . # it will create image from Docker file.
 Docker run -dt -p 
 docker run -dt --name container1 imagename <ubuntu>
+Docker run -dt --network host httpd # network configuration command
 ############YUM  and apt install in container#####
 # First, update the package list
 apt-get update
