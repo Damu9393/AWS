@@ -35,3 +35,19 @@ docker compose images
 
 # View all containers created by docker-compose file
 docker compose ps
+
+
+
+################### Dcoker-Swam #########
+Docker Swarm
+Docker Swarm is a container orchestration tool for clustering and scheduling Docker containers. It allows IT administrators and developers to manage a cluster of Docker nodes as a single virtual system. With Swarm, multiple physical or virtual machines can be joined into a cluster.
+
+Docker Swarm vs Kubernetes
+Docker Swarm does not support autoscaling, whereas Kubernetes does.
+Kubernetes Advantages
+Large open-source community, backed by Google
+Supports every operating system
+Can manage large architectures and complex workloads
+Automated with self-healing and automatic scaling
+Built-in monitoring and wide range of integrations
+Supported by major cloud providers: Google Cloud, Azure, and AWS
