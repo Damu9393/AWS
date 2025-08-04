@@ -12,7 +12,7 @@ spec:
   - name: nginx-container
     image: nginx
 
-######Replicaset.yml#######
+######Replicaset.yml#######   Here atleast one lable should match replicaset lable with Pod lable.
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
