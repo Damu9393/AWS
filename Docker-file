@@ -57,3 +57,14 @@ COPY init.sql /docker-entrypoint-initdb.d/
 
 # Start MySQL server
 CMD ["mysqld"]
+
+###########CMD and Entrypoint Dockerfile###########
+FROM python:3.6
+MAINTAINER veera "veera.narni232@gmail.com"
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+#ENTRYPOINT ["python"]
+CMD ["python", "app.py"]
+EXPOSE 5000
+CMD ["python", "app.py"]
