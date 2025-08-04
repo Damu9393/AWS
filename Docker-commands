@@ -6,6 +6,7 @@ Docker inspect image or containerid # to check moreinfo about the image or conta
 Docker pull image name:
 Docker build -t name . # it will create image from Docker file.
 Docker run -dt -p 
+docker run -dt --name container1 imagename <ubuntu>
 ############YUM  and apt install in container#####
 # First, update the package list
 apt-get update
