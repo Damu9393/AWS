@@ -1,0 +1,37 @@
+# Run docker-compose and detach terminal
+docker-compose -f filename up
+
+# Run docker-compose file in detached mode
+docker-compose up -d
+
+# See container status
+docker-compose ps
+
+###### List of commands on Docker Compose ######
+
+# Pull Docker images
+docker-compose pull
+
+# Create all containers using docker-compose file
+docker-compose up
+
+# Create all containers using docker-compose file with detached mode
+docker-compose up -d
+
+# Stop all running containers
+docker-compose stop
+
+# View the config file
+docker compose config
+
+# Remove all stopped containers
+docker compose rm
+
+# View logs of all containers
+docker compose logs
+
+# View all images
+docker compose images
+
+# View all containers created by docker-compose file
+docker compose ps
