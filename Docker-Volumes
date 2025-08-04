@@ -1,0 +1,30 @@
+###########################  
+--------Docker volumes -----------  
+###########################  
+
+Volumes are a mechanism for storing data outside containers. All volumes are managed by Docker and stored in a dedicated directory on your host, usually `/var/lib/docker/volumes` for Linux systems.
+
+### To create a volume
+docker volume create <volume-name>
+
+### To check list of volumes
+docker volume ls
+
+### To inspect a volume
+docker inspect volume <volume-name>
+
+### To remove a volume
+docker volume rm <volume-name>
+
+### To check created volume path
+cd /var/lib/docker/volumes
+
+### Run container from Ubuntu image along with created volume
+docker run -ti --name=container1 -v volume1:/volume1 ubuntu
+# You can give any name in place of volume1 if required
+
+echo "Share this file between containers" > ./volume1/Example.txt
+
+# After deleting the container, the volume will still persist
+# Volumes are stored in host path: /var/lib/docker/volumes
+###########################
