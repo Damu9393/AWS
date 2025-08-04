@@ -1,0 +1,20 @@
+Docker Push to AWS ECR
+
+Authenticate Docker to AWS ECR
+Use the AWS CLI to retrieve an authentication token and log in:
+
+aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 992832852020.dkr.ecr.ap-south-1.amazonaws.com
+
+Note: If you encounter errors, ensure:
+- You have the latest version of AWS CLI and Docker installed.
+- You've created a role with appropriate permissions and attached it to your EC2 instance.
+
+Build Docker Image (Optional if already built)
+docker build -t maventomcat .
+
+Tag the Docker Image
+docker tag maventomcat:latest 992832852020.dkr.ecr.ap-south-1.amazonaws.com/maventomcat:latest
+
+Push the Image to AWS ECR
+docker push 992832852020.dkr.ecr.ap-south-1.amazonaws.com/maventomcat:latest
+
